@@ -10,6 +10,7 @@ import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './login/login.component';
 
 import { environment } from '../environments/environment';
+import { AuthGuard } from './utils/auth.guard';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -33,7 +34,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

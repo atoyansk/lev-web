@@ -1,6 +1,32 @@
-<p>header works!</p>
-<div class="d-flex justify-content-center">
-    <button type="button" class="btn login_btn" (click)="authService.signOut()">
-        Sair
-      </button>
-</div>
+<nav class="navbar navbar-expand-lg" [ngClass]="{'affix': navIsAffix==true}">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#myNavbar"
+    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+    (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <a class="navbar-brand" routerLink="/dashboard">
+          <figure>
+            <img src="../../assets/lev.png" class="imgNormal" height=55 width=55>
+            <img src="../../assets/lev-branco.png" class="imgAffix" height=70 width=70>
+          </figure>
+        </a>
+      <div class="navbar-collapse collapse" id="myNavbar" [ngClass]="{ 'show': navbarOpen }">
+        <div *ngIf="authService.user$ | async; then authenticated else guest"></div>
+        <ng-template #authenticated>
+          <ul class="navbar-nav ml-auto">
+            <li><a routerLink="/dashboard"    routerLinkActive="active">DASHBOARD</a></li>
+            <li><a routerLink="/users" routerLinkActive="active">USUÁRIOS</a></li>
+            <li class="d-flex sair">
+                <button type="button" class="btn login_btn sair" (click)="authService.signOut()">
+                  Sair
+                </button>
+            </li>
+          </ul>
+        </ng-template>
+      </div>
+
+  </nav>
+
+

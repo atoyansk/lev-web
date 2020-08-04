@@ -17,14 +17,15 @@ export class AuthService {
 
     constructor(
         private afAuth: AngularFireAuth,
-        private afs: AngularFirestore,
+        // private afs: AngularFirestore,
+        private afs: AngularFireDatabase,
         private router: Router,
         public ngZone: NgZone) {
           this.user$ = this.afAuth.authState.pipe(
             switchMap(user => {
                 // Logged in
               if (user) {
-                return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+                return this.afs.list(`admin/${user.uid}`).valueChanges();
               } else {
                 // Logged out
                 return of(null);
@@ -37,7 +38,7 @@ export class AuthService {
           this.afAuth.signInWithEmailAndPassword(email, password)
             .then(res => {
               this.router.navigate(['dashboard']);
-              this.setUserData(res.user);
+              
               console.log('You are Successfully logged in!');
             })
           .catch(err => {
@@ -65,14 +66,14 @@ export class AuthService {
         forgotPassword(passwordResetEmail) {
           return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
           .then(() => {
-            window.alert('Password reset email sent, check your inbox.');
+            window.alert('O Email para redefinir sua senha foi enviado, por favor verifique.');
           }).catch((error) => {
             window.alert(error);
           });
         }
 
         private setUserData(user) {
-          const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+          const userRef = this.afs.object(`admin/${user.uid}`);
 
           const userData = {
             uid: user.uid,
@@ -82,7 +83,7 @@ export class AuthService {
             emailVerified: user.emailVerified
           };
 
-          return userRef.set(userData, { merge: true });
+          return userRef.set(userData);
         }
 
         async signOut() {

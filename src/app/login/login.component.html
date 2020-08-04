@@ -1,34 +1,56 @@
-<div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-            <div class="card-header">
-				<h3>Entrar</h3>
-			</div>
-			<div class="card-body">
-				<form>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fa fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="Seu Email" #userName required>
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fa fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="Sua Senha" #userPassword required>
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Entrar" class="btn btn-block login_btn" (click)="authService.signIn(userName.value, userPassword.value)">
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center">
-					<a routerLink="/forgot-password">Esqueceu sua senha?</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="d-flex flex-column flex-root">
+    <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white">
+        <div class="login-aside d-flex flex-row-auto bgi-size-cover bgi-no-repeat p-10 p-lg-10">
+            <div class="d-flex flex-row-fluid flex-column justify-content-between">
+                <div class="flex-column-auto mt-5 pb-lg-0 pb-10">
+                    <figure>
+                        <img src="../../assets/lev.png" height=65 width=65>
+                      </figure>
+                </div>
+                <div class="flex-column-fluid d-flex flex-column justify-content-center mb-auto">
+                    <h3 class="font-size-h1 mb-5 text-white">
+                        Sistema LEV
+                    </h3>
+                    <p class="font-weight-lighter text-white opacity-80">
+                        Aqui você poderá gerenciar os usuários e saber mais sobre o desempenho do app LEV.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Entrar</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Seu Email" #userName required>
+                                
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Sua Senha" #userPassword required>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Entrar" class="btn btn-block login_btn" (click)="authService.signIn(userName.value, userPassword.value)">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center">
+                            <a routerLink="/forgot-password">Esqueceu sua senha?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

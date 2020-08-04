@@ -41,5 +41,5 @@ export class DashboardComponent implements OnInit {
     this.scrollToTop();
 
   }
-
+ 
 }

@@ -1,0 +1,28 @@
+.container{
+    min-height: 80vh;
+}
+.card {
+    height: 200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 27%;
+}
+.card-title{
+    text-align: center;
+    padding: 5px 15px;
+}
+.card-text h1 {
+    font-size: 70px;
+    padding: 10px;
+}
+.dividor{
+    border-bottom: 2px solid #CCC;
+    width: 80%;
+    margin: 50px 0px;
+}
+.large{
+    height: 300px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 95%;
+}

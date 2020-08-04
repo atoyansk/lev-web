@@ -1,0 +1,17 @@
+@import '../../assets/styles/mixins';
+
+.login-aside{
+    background: url('../../assets/foto_registration.jpg') center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      @include fade-in('500ms');
+      padding: 0 !important;
+      margin-top: 0 !important;
+      
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      padding: 2.5rem !important;
+
+      p{ padding: 0 10px; }
+}

@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ScrollnavService } from '../services/scrollnav.service';
+import { CrudMethodsService } from '../services/crud-methods.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +13,11 @@ export class DashboardComponent implements OnInit {
 
   navIsFixed: boolean;
   valor: number;
+  basePath = 'users';
+  males:  any=[];
+  females:  any=[];
 
-  constructor(@Inject(DOCUMENT) private document: Document, private scrollserv: ScrollnavService) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private scrollserv: ScrollnavService, private crudService: CrudMethodsService) { }
 
   // scroll to top
   @HostListener('window:scroll', [])
@@ -39,6 +44,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
     this.scrollToTop();
+
+    this.crudService.getItem(this.basePath, 'genero', 'masculino').subscribe(dado => {
+      this.males = dado;
+      console.log(this.males);
+    });
+
+    this.crudService.getItem(this.basePath, 'genero', 'feminino').subscribe(dado => {
+      this.females = dado;
+      console.log(this.females);
+    });
 
   }
  

@@ -11,10 +11,14 @@
     text-align: center;
     padding: 5px 15px;
 }
-.card-text h1 {
-    font-size: 70px;
-    padding: 10px;
+.card-text {
+    color: var(--secondary);
+    h1 {
+        font-size: 70px;
+        padding: 10px;
+    }
 }
+
 .dividor{
     border-bottom: 2px solid #CCC;
     width: 80%;

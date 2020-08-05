@@ -33,7 +33,7 @@ export class CrudMethodsService {
   }
 
   deleteItem(basePath: string, key: string) {
-    this.db.object(basePath + '/' + key).delete();
+    this.db.object(basePath + '/' + key).remove();
   }
 }
 

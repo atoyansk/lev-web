@@ -14,10 +14,12 @@ export class DashboardComponent implements OnInit {
   navIsFixed: boolean;
   valor: number;
   basePath = 'users';
-  males:  any=[];
-  females:  any=[];
+  males: any = [];
+  females: any = [];
 
-  constructor(@Inject(DOCUMENT) private document: Document, private scrollserv: ScrollnavService, private crudService: CrudMethodsService) { }
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private scrollserv: ScrollnavService,
+              private crudService: CrudMethodsService) { }
 
   // scroll to top
   @HostListener('window:scroll', [])
@@ -56,5 +58,4 @@ export class DashboardComponent implements OnInit {
     });
 
   }
- 
 }

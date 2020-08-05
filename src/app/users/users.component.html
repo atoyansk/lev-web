@@ -1,4 +1,32 @@
 <div class="container">
-    <p>users works!</p>
+    <div class="row userlist">
+        <div class="card" *ngFor="let user of usuarios">
+            <div class="card-header">
+                <h4>{{ user.nome }}</h4>
+            </div>
+            <div class="card-body">
+                <div class="h-100 d-flex flex-column">
+                    <div class="h-50 w-100 d-inline-flex">  
+                      <div class="w-50 bg-info flex-fill"></div>
+                      <div class="w-50 p-2 flex-fill">
+                          <p>Gênero: {{user.genero}}</p>
+                          <p>Conexão: {{user.nivelConexao}}</p>
+                          <p>Costume: {{user.costume}}</p>
+                      </div>
+                    </div>
+                    <div class="h-50 d-inline-flex">  
+                        <div class="bg-danger flex-fill"></div>
+                      </div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-warning">Advertir</button>
+                    <button class="btn btn-danger">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

@@ -31,3 +31,17 @@
         margin-bottom: 0 !important;
     }
 }
+
+.card-img{
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+}
+
+.card-img-d{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    border: 2px solid var(--secondary);
+}

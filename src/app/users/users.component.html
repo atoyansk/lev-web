@@ -6,8 +6,17 @@
             </div>
             <div class="card-body">
                 <div class="h-100 d-flex flex-column">
-                    <div class="h-50 w-100 d-inline-flex">  
-                      <div class="w-50 bg-info flex-fill"></div>
+                    <div class="h-50 w-100 d-inline-flex">
+                      <div class="w-50 flex-fill" *ngIf="user.destaque">
+                          <div *ngFor="let dest of generateArray(user.destaque)">
+                            <!-- <img [src]="dest.url" class="card-img" /> -->
+                            <div [ngStyle]="{'background-image': 'url(' + dest.url + ')'}" class="card-img-d"></div>
+                          </div>
+                      </div> 
+                      <div class="w-50 flex-fill" *ngIf="!user.destaque">
+                        <img src="./../assets/img/avatar.png" class="card-img" />
+                    </div> 
+
                       <div class="w-50 p-2 flex-fill">
                           <p>Gênero: {{user.genero}}</p>
                           <p>Conexão: {{user.nivelConexao}}</p>

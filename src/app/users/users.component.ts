@@ -16,6 +16,24 @@ export class UsersComponent implements OnInit {
   basePath = 'users';
   usuarios: any = [];
 
+  showModal = false;
+  showModal2 = false;
+
+  detModal;
+  modalName: string;
+  modalSobre: string;
+  modalKey: string;
+  modalImgDet: string;
+  modalImgs;
+  modalBusca: string;
+  modalMPraticas: string;
+  modalPraticas: Array<object>;
+  modalECivil: string;
+  modalFilhos: string;
+  modalCigarro: string;
+  modalBebida: string;
+  modalInteresses: Array<object>;
+
   constructor(@Inject(DOCUMENT) private document: Document,
               private scrollserv: ScrollnavService,
               private crudService: CrudMethodsService) { }
@@ -56,4 +74,32 @@ export class UsersComponent implements OnInit {
   }
 
 
+  open(user) {
+    this.showModal = true;
+    this.modalName = user.nome;
+    this.modalSobre = user.sobre;
+    this.modalKey = user.key;
+    this.modalImgDet = user.destaque;
+    this.modalBusca = user.busca;
+    this.modalImgs = user.fotos;
+    this.modalMPraticas = user.minhasPraticas;
+    this.modalPraticas = user.praticas;
+    this.modalECivil = user.eCivil;
+    this.modalFilhos = user.filhos;
+    this.modalCigarro = user.cigarro;
+    this.modalBebida = user.bebida;
+    this.modalInteresses = user.interesses;
+    console.log(user);
+  }
+
+  delUser(name, key){
+    if(confirm("Tem certeza que quer excluir "+name+"?")) {
+      console.log(name, key);
+      this.crudService.deleteItem(this.basePath, key);
+    }  
+  }
+
+  adv() {
+    this.showModal2 = true;
+  }
 }

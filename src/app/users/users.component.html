@@ -22,23 +22,126 @@
                           <p>Costume: {{user.costume}}</p>
                       </div>
                     </div>
-                    <!-- <div class="h-50 d-inline-flex" *ngIf="user.fotos"> -->
                     <div class="d-flex h-50"> 
-                        <button class="btn btn-primary mx-auto align-self-center">Mais Detalhes</button> 
-                      <!-- <div class="flex-fill" *ngFor="let ft of generateArray(user.fotos)">
-                          <img [src]="ft.url" class="list-img" />
-                      </div> -->
+                        <button class="btn btn-primary mx-auto align-self-center" 
+                                data-toggle="modal" [attr.data-target]="'#'+detModal" (click)="open(user)">
+                                    Mais Detalhes
+                        </button> 
                     </div>
                 </div>
 
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-around">
-                    <button class="btn btn-warning">Advertir</button>
-                    <button class="btn btn-danger">Excluir</button>
+                    <button class="btn btn-warning" data-toggle="modal" [attr.data-target]="'#'+advModal" (click)="adv()">Advertir</button>
+                    <button class="btn btn-danger" (click)="delUser(user.nome, user.key)">Excluir</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" [attr.id]="detModal" [ngClass]="{'show': showModal}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">  
+              <button type="button" class="close" (click)="showModal=false" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="entry-slide row">
+                <div class="col-md-6 col-sm-12">
+                  <h2>{{modalName}}</h2>
+                  <div class="sobre">{{modalSobre}}</div>
+                  <h4 *ngIf="modalBusca">O que eu procuro...</h4>
+                  <div>{{modalBusca}}</div>
+                </div>
+                <div class="col-md-6 col-sm-12 d-flex mx-auto" *ngIf="modalImgDet">
+                    <div *ngFor="let dest of generateArray(modalImgDet)">
+                      <img [src]="dest.url"/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 d-flex mx-auto" *ngIf="!modalImgDet">
+                    <img src="./../assets/img/avatar.png" />
+                </div>
+              </div>
+              <div class="container-fotos" *ngIf="modalImgs">
+                <h4>Outras Fotos</h4>  
+                <div class="container-grid" *ngFor="let ft of generateArray(modalImgs)">
+                    <img [src]="ft.url"/>
+                </div>
+              </div>
+              <div class="container-praticas" *ngIf="modalMPraticas">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <h4>Minhas Práticas</h4>
+                        <div>{{modalMPraticas}}</div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <h4 *ngIf="modalPraticas">Práticas que Espero</h4>
+                        <div>{{modalPraticas}}</div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="container-infos">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <h4 *ngIf="modalECivil">Estado Civil</h4>
+                        <div>{{modalECivil}}</div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h4 *ngIf="modalFilhos">Filhos</h4>
+                        <div>{{modalFilhos}}</div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h4 *ngIf="modalCigarro">Cigarro</h4>
+                        <div>{{modalCigarro}}</div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h4 *ngIf="modalBebida">Bebida</h4>
+                        <div>{{modalBebida}}</div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="container-infos" *ngIf="modalInteresses">
+                <div class="col-md-8 col-sm-12">
+                    <h4>Meus Interesses</h4>
+                    <div>{{modalInteresses}}</div>
+                </div>
+              </div>
+             
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="showModal=false" data-dismiss="modal">Fechar</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" [attr.id]="advModal" [ngClass]="{'show': showModal2}">
+        <div class="modal-dialog2">
+            <div class="modal-content">
+                <div class="modal-header">  
+                    <button type="button" class="close" (click)="showModal2=false" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body2"></div>
+
+                 <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-warning">Advertir</button>
+                <button type="button" class="btn btn-danger" (click)="showModal2=false" data-dismiss="modal">Fechar</button>
+                </div>
+
+            </div>
+        </div>
+      </div>
 </div>
 

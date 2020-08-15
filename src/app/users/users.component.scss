@@ -50,3 +50,119 @@
     max-width: 250px;
     border: solid 2px var(--secondary);
 }
+
+
+
+.modal{
+    background-color: rgba(0,0,0,0.5);
+    h4{
+        display: block;
+        margin: 0;
+        font-weight: bold;
+    }
+}
+.modal.show{ display: block; }
+.modal-dialog{
+    margin-top: 100px;
+    max-width: 75%;
+    max-height: 90%;
+}
+.modal-dialog2{
+    margin-top: 100px;
+    max-width: 50%;
+    max-height: 50%;
+    margin-left: 25%;
+}
+.modal-body{ 
+    overflow-y: scroll; 
+    overflow-x: none;
+    height: 300px;
+    padding: 0;
+}
+
+.modal-body2{ 
+    overflow-y: scroll; 
+    overflow-x: none;
+    height: 150px;
+    padding: 0;
+}
+
+.entry-slide{
+    padding: 10px 10px 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #cfcfcf;
+    width: 100%;
+    
+    &.row{ margin-left: 0; }
+
+    h2{
+        font-size: 3rem;
+        font-weight: normal;
+        border-bottom: #DDD solid 1px;
+        padding-bottom: 5px;
+        margin-bottom: 0.1em;
+        text-align: left;
+    }
+    .sobre{ padding-bottom: 20px; }
+    col{ padding: 0 !important; }
+    div{
+        padding: 15px 0 0 0;
+        margin: 0 auto 0 auto !important;
+        text-align: left;
+        line-height: 1.7rem;
+        max-width: 26rem;
+        color: #111111;
+        text-rendering: optimizeLegibility;
+    }
+    img{
+        height: 150px;
+        width: 150px;
+        margin: 0 auto 0 auto !important;
+        border-radius: 50%;
+        border: 2px solid var(--secondary);
+    }
+
+} 
+
+.container-fotos {
+    -webkit-column-count: 4;
+    -moz-column-count:4;
+    column-count: 4;
+    -webkit-column-gap: 1em;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+    margin: 1.5em;
+    padding: 15px 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+    border-bottom: 1px solid #cfcfcf;
+}
+.container-grid {
+    // display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    img{
+        max-height: 200px;
+        max-width: 200px;
+    }
+}
+.container-praticas{
+    padding: 25px;
+    border-bottom: 1px solid #cfcfcf;
+    div{
+        white-space: pre-line;
+    }
+}
+
+.container-infos{
+    padding: 25px;
+    border-bottom: 1px solid #cfcfcf;
+}

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,13 @@ export class CrudMethodsService {
   constructor(private db: AngularFireDatabase) { }
 
   getItems(basePath: string) {
-    return this.db.list(basePath).valueChanges();
+    return this.db.list(basePath).snapshotChanges().pipe(map(changes =>{
+      return changes.map(c=> {
+        const data = c.payload.val();
+        const id = c.payload.key;
+        return { key: id, ...(data as object) };
+      });
+    }))
   }
 
   getItem(basePath: string, field: string, value: any) {

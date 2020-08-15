@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { ToastrModule } from 'ngx-toastr';
 
 import { environment } from '../environments/environment';
 import { AuthGuard } from './utils/auth.guard';
@@ -45,6 +46,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AngularFireDatabaseModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     NgImageSliderModule
   ],
   providers: [AuthGuard, AuthService],

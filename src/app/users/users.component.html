@@ -118,15 +118,15 @@
       
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button class="btn btn-warning" data-toggle="modal" [attr.data-target]="'#'+advModal" (click)="adv(user)">Advertir</button>
-              <button class="btn btn-danger" (click)="delUser(user.nome, user.key)">Excluir</button>
+              <button class="btn btn-warning" data-toggle="modal" [attr.data-target]="'#'+advModal" (click)="adv(modalUser)">Advertir</button>
+              <button class="btn btn-danger" (click)="delUser(modalName, modalKey)">Excluir</button>
               <button type="button" class="btn btn-default" (click)="showModal=false" data-dismiss="modal">Fechar</button>
             </div>
       
           </div>
         </div>
       </div>
-
+      <!-- Modal Advertencia -->
       <div class="modal fade" [attr.id]="advModal" [ngClass]="{'show': showModal2}">
         <div class="modal-dialog2">
             <div class="modal-content">
@@ -165,5 +165,7 @@
             </div>
         </div>
       </div>
+      <!-- End Modal Advertencia -->
+      
 </div>
 

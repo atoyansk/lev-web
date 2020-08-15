@@ -23,6 +23,9 @@ export class UsersComponent implements OnInit {
   showModal2 = false;
 
   detModal;
+  advModal;
+
+  modalUser;
   modalName: string;
   modalSobre: string;
   modalKey: string;
@@ -106,6 +109,7 @@ export class UsersComponent implements OnInit {
 
   open(user) {
     this.showModal = true;
+    this.modalUser = user;
     this.modalName = user.nome;
     this.modalSobre = user.sobre;
     this.modalKey = user.key;
@@ -125,7 +129,8 @@ export class UsersComponent implements OnInit {
   delUser(name, key){
     if(confirm("Tem certeza que quer excluir "+name+"?")) {
       console.log(name, key);
-      this.crudService.deleteItem(this.basePath, key).then(() => {
+      this.crudService.deleteItem(this.basePath, key)
+      .then(() => {
         this.showDel();
       }).catch((err) => {
         this.showError();
@@ -137,11 +142,13 @@ export class UsersComponent implements OnInit {
   adv(user) {
     this.showModal2 = true;
     this.showModal = false;
+    this.modalUser = user;
     this.modalEmail = user.email;
     this.modalName = user.nome;
 
     this.f.controls.nome.setValue(this.modalName);
     this.f.controls.email.setValue(this.modalEmail);
+    console.log(user);
   }
 
   get fr() { return this.f.controls; }

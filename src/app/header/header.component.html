@@ -13,7 +13,7 @@
           </figure>
         </a>
       <div class="navbar-collapse collapse" id="myNavbar" [ngClass]="{ 'show': navbarOpen }">
-        <div *ngIf="authService.user$ | async; then authenticated else guest"></div>
+        <div *ngIf="authService.user$ | async; then authenticated"></div>
         <ng-template #authenticated>
           <ul class="navbar-nav ml-auto">
             <li><a routerLink="/dashboard"    routerLinkActive="active">DASHBOARD</a></li>

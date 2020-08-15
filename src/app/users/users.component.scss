@@ -16,7 +16,7 @@
     overflow:hidden;
     position: relative !important;
     margin: 20px;
-    width: 28% !important;
+    width: 22% !important;
 }
 
 .card-header{
@@ -44,4 +44,9 @@
     border-radius: 50%;
     background-size: cover;
     border: 2px solid var(--secondary);
+}
+.list-img{
+    max-height: 120px;
+    max-width: 250px;
+    border: solid 2px var(--secondary);
 }

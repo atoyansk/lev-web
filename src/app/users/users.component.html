@@ -7,25 +7,28 @@
             <div class="card-body">
                 <div class="h-100 d-flex flex-column">
                     <div class="h-50 w-100 d-inline-flex">
-                      <div class="w-50 flex-fill" *ngIf="user.destaque">
+                      <div class="w-30 flex-fill" *ngIf="user.destaque">
                           <div *ngFor="let dest of generateArray(user.destaque)">
-                            <!-- <img [src]="dest.url" class="card-img" /> -->
                             <div [ngStyle]="{'background-image': 'url(' + dest.url + ')'}" class="card-img-d"></div>
                           </div>
                       </div> 
-                      <div class="w-50 flex-fill" *ngIf="!user.destaque">
+                      <div class="w-30 flex-fill" *ngIf="!user.destaque">
                         <img src="./../assets/img/avatar.png" class="card-img" />
                     </div> 
 
-                      <div class="w-50 p-2 flex-fill">
+                      <div class="w-70 p-2 flex-fill">
                           <p>Gênero: {{user.genero}}</p>
                           <p>Conexão: {{user.nivelConexao}}</p>
                           <p>Costume: {{user.costume}}</p>
                       </div>
                     </div>
-                    <div class="h-50 d-inline-flex">  
-                        <div class="bg-danger flex-fill"></div>
-                      </div>
+                    <!-- <div class="h-50 d-inline-flex" *ngIf="user.fotos"> -->
+                    <div class="d-flex h-50"> 
+                        <button class="btn btn-primary mx-auto align-self-center">Mais Detalhes</button> 
+                      <!-- <div class="flex-fill" *ngFor="let ft of generateArray(user.fotos)">
+                          <img [src]="ft.url" class="list-img" />
+                      </div> -->
+                    </div>
                 </div>
 
             </div>
